@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+project_root=$(git rev-parse --show-toplevel)
+cd "$project_root"
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "Security check blocked: install gitleaks before committing or pushing." >&2
+  exit 1
+fi
+case "${0##*/}" in
+  pre-commit) exec gitleaks git --pre-commit --staged --redact --no-banner --ignore-gitleaks-allow --config .gitleaks.toml . ;;
+  pre-push) exec gitleaks git --redact --no-banner --ignore-gitleaks-allow --config .gitleaks.toml --log-opts="--all" . ;;
+  *) exit 1 ;;
+esac

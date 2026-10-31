@@ -1,0 +1,14 @@
+title = "Project secret and privacy checks"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "personal-local-path"
+description = "Personal absolute home directory path"
+regex = '''(?i)(/Users/[^/\s"']+/|[A-Z]:\\Users\\[^\\\s"']+\\)'''
+
+[[rules]]
+id = "wechat-account-appid"
+description = "Account-specific WeChat AppID; use local configuration"
+regex = '''\bwx[a-fA-F0-9]{16}\b'''

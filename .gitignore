@@ -1,0 +1,50 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Local private configuration and credentials
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+id_rsa*
+id_ed25519*
+credentials.json
+credentials.*.json
+service-account*.json
+service_account*.json
+secrets/
+.secrets/
+export_credentials.cfg
+
+# Local tools, caches, operating system files and generated output
+.DS_Store
+Thumbs.db
+.codex/
+.claude/
+.cursor/
+.vscode/
+.idea/
+.godot/
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.log
+/build/
+/dist/
+/exports/
+/coverage/
+/tests/last_run.txt
+
+# WeChat developer machine and account configuration
+project.config.json
+project.private.config.json
+project.*.private.config.json
